@@ -1,6 +1,7 @@
 import React, { useState }from 'react'
+import axios from 'axios'
 
-const Form = () => {
+const Form = ({setRepoList}) => {
     const [username, setUsername] = useState("")
     const [nameInput, setNameInput] = useState("")
 
@@ -19,11 +20,16 @@ const Form = () => {
 
     const getResult = async (name)=> {
         try{
-
-
-        } catch(error) {
-
+            const {data} = axios.get(`https://api.github.com/users/${username}/repos`)
+            let nameList = data.map(repo => repo.name)
+            setRepoList(nameList)
             
+
+
+        } catch(err) {
+            console.warn(err.mesage);
+
+
         }
     }
 

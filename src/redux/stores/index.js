@@ -1,0 +1,1 @@
+export {deafult as store } from './Store';

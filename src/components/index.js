@@ -1,2 +1,2 @@
 export {default as Form} from './Form'
-export {default as RepoList} from './RepoList'
+export {default as Repo} from './Repo'

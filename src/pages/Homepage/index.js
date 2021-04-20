@@ -1,5 +1,5 @@
 import React, { useState }from 'react'
-import {Form, RepoList} from '../../components'
+import {Form, Repo} from '../../components'
 
 
 const Homepage = () => {
@@ -9,6 +9,7 @@ const Homepage = () => {
 
     return (
         <>
+        <h1>Home!</h1>
         <Form setRepoList={setRepoList}/>
         {repoList && render()}
         </>

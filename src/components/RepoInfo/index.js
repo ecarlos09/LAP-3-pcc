@@ -17,7 +17,7 @@ const RepoInfo = ({username}) => {
         console.log(name)
         try{
             const {data} = await axios.get(`https://api.github.com/users/${name}/repos`)
-            let result = data[params.id].size
+            let result = data[params.id].url
             console.log(result)
             setResult(result)
         } catch(err) {
@@ -26,7 +26,7 @@ const RepoInfo = ({username}) => {
     }
 
     return (
-        <h1>{result}</h1>
+        <h1>url:{result}</h1>
     )
 
 }

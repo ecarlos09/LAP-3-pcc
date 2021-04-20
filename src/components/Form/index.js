@@ -1,8 +1,8 @@
 import React, { useState, useEffect }from 'react'
 import axios from 'axios'
 
-const Form = ({setRepoList}) => {
-    let [username, setUsername] = useState("")
+const Form = ({setRepoList, username, setUsername}) => {
+    
     const [nameInput, setNameInput] = useState("")
 
     useEffect(() => {
@@ -34,6 +34,7 @@ const Form = ({setRepoList}) => {
         try{
             const {data} = await axios.get(`https://api.github.com/users/${username}/repos`)
             let nameList = data.map(repo => repo.name)
+            console.log(nameList)
             setRepoList(nameList)
         } catch(err) {
             console.warn(err.mesage);

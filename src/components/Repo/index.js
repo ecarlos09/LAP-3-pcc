@@ -1,13 +1,20 @@
-import React from 'react';
+import React, { useState}  from 'react';
+import {NavLink, Switch} from 'react-router-dom'
 
-const Repo = (props) => {
-    const [name,setName] = useState()
-    setName(props.name)
+const Repo = ({repoList, setRepoList}) => {
     
 
 
+    const list =  repoList.map( (name,index) => <NavLink to={`/Repopage/${index}`}><h1>{name}</h1></NavLink>)
+
+
     return (
-        <h1>{name}</h1>
+        
+        <>
+        <h1>Repolist</h1>
+
+       {list}
+        </>
     )
 
 

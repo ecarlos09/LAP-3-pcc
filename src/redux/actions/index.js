@@ -1,21 +1,23 @@
 import axios from 'axios';
 
+const loading = username => ({ type: 'LOADING', payload: username });
+const loadRepos = (username, list, avatar) => ({ type: 'LOAD_REPOS', payload: { username, list, avatar } });
+const loadRepoInfo = (repoInfo) => ({ type: 'LOAD_REPO_INFO', payload: repoInfo });
+const error = () => ({ type: 'SET_ERROR', payload: err.message });
+
 export const getResult = (userSearch) => {
     return async (dispatch) => {
+        dispatch(loading(userSearch));
         try {
             const {data} = await axios.get(`https://api.github.com/users/${userSearch}/repos`)
+            console.log(data);
             let username = data[0].owner.login;
             let list = data.map(repo => repo.name);
             let avatar = data[0].owner.avatar_url;
-            dispatch({
-                type: 'LOAD_REPOS',
-                payload: { username, list, avatar }
-            })
+            dispatch(loadRepos(username, list, avatar));
         } catch (err) {
-            dispatch({
-                type: 'SET_ERROR',
-                payload: err.message
-            })
+            console.warn(err.message);
+            dispatch(error);
         }
     }
 }
@@ -48,15 +50,9 @@ export const getRepoInfo = (userSearch, params) => {
                 contributorsUrl, 
                 deploymentsUrl
             }
-            dispatch({
-                type: 'LOAD_REPO_INFO',
-                payload: repoInfo
-            })                        
+            dispatch(loadRepoInfo(repoInfo));                        
         } catch (err) {
-            dispatch({
-                type: 'SET_ERROR',
-                payload: err.message
-            })
+            dispatch(error)
         }
     }
 }

@@ -11,12 +11,12 @@ const Homepage = () => {
     const avatarLink = useSelector(state => state.avatar);
    
     return (
-        <>
-        <Header />
-        <Form />
-        { avatarLink ? <img src={avatarLink} alt="avatar image" style={{width:"5rem"}} /> : <span id="no-image-here"></span> } 
-        { error ? <p role='alert'>Oops!  We cannot find that user.  Try a different name.</p> : <Repo /> }
-        </>
+        <section id="homepage">
+            <Header />
+            <Form />
+            { avatarLink ? <img src={avatarLink} alt="avatar image" style={{width:"5rem"}} /> : <span id="no-image-here"></span> } 
+            { error ? <p role='alert'>Oops!  We cannot find that user.  Try a different name.</p> : <Repo /> }
+        </section>
     )
 }
 

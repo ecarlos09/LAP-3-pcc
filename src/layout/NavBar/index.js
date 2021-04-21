@@ -10,8 +10,8 @@ const NavBar = () => {
     return (
         <nav>
             <section className="page-links">
-                <NavLink exact to="/" activeClassName="current">Home</NavLink>
-                <NavLink to="/repopage" activeClassName="current">Repo Info</NavLink>
+                <NavLink exact to="/" activeClassName="current" className="navlink">Home</NavLink>
+                <NavLink to="/repopage" activeClassName="current" className="navlink">Repo Info</NavLink>
             </section>
             <section className="history-links">
                 <button id="back-button" onClick={history.goBack}>Go back</button>

@@ -1,12 +1,21 @@
 nav {
     display: flex;
     justify-content: space-between;
+    background-color: black;
+    color: white;
+    border: solid 0.5rem black;
 }
 
 .page-links {
     width: 10vw;
     display: flex;
     justify-content: space-between;
+}
+
+.navlink {
+    background-color: whitesmoke;
+    color: grey;
+    border-radius: 5%;
 }
 
 .history-links {

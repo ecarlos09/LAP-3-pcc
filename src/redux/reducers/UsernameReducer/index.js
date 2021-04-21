@@ -10,6 +10,9 @@ const usernameReducer = (state=initState, action) => {
             const username = action.payload.username;
             const repoList = action.payload.list;
             return { ...state, username: username, repos: repoList };
+        case "LOAD_REPO_INFO":
+            const repoInfo = action.payload;
+            return { ... state, repoInfo: repoInfo};
         case 'SET_ERROR':
             return { ...state, error: action.payload }
         default:

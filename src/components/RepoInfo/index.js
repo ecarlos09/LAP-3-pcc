@@ -14,20 +14,32 @@ const RepoInfo = () => {
     
     dispatch(getRepoInfo(username, params));
 
+    const renderRows = () => {
+        let repoInfoArray = Object.entries(result);
+        return repoInfoArray.map( ([key, value]) => (
+            <tr>
+                <td>{key}</td>
+                <td>{value}</td>
+            </tr>
+        ));
+    };
+
     return (
         <section className="repo-info">
             <p>Please do not refresh your page (we have not installed redux persist yet)!</p>
-            <h1>{result.url}</h1>
-            <h1>{result.description}</h1>
-            <h1>{result.language}</h1>
-            <h1>{result.createdAt}</h1>
-            <h1>{result.updatedAt}</h1>
-            <h1>{result.forksCount}</h1>
-            <h1>{result.stargazersCount}</h1>
-            <h1>{result.watchersCount}</h1>
-            <h1>{result.collaboratorsUrl}</h1>
-            <h1>{result.contributorsUrl}</h1>
-            <h1>{result.deploymentsUrl}</h1>
+
+            <table style = {{border: "1px solid black", width:"100vw", textAlign: "center"}}>
+                <thead style = {{color: "white", backgroundColor:"grey"}}>
+                    <tr>
+                        <th>...</th>
+                        <th>...</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    { renderRows() }
+                </tbody>
+            </table>
+
         </section>
 
     )

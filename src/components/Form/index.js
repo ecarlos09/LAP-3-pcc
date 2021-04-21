@@ -1,49 +1,24 @@
-import React, { useState, useEffect }from 'react'
-import axios from 'axios'
+import React, { useState, useEffect }from 'react';
+import { useDispatch } from 'react-redux';
 
-const Form = ({setRepoList, username, setUsername}) => {
-    
+import { getResult } from '../../redux/actions'
+
+
+const Form = () => {
+
+    const dispatch = useDispatch();
     const [nameInput, setNameInput] = useState("")
 
-    useEffect(() => {
-        if(username){
-            getResult(username);
-            }
-        },[username] 
-    )
-
-
-    const handleSubmit =(e) => {
+    const handleSubmit = (e) => {
         e.preventDefault()
-        setUsername(nameInput)
-        // console.log(username)
-        // getResult(username)
+        dispatch(getResult(nameInput))
         setNameInput("")
     }
 
-    const updateInput = e => {
-        
+    const updateInput = e => {        
         setNameInput(e.target.value);
     }
-
-    // useEffect(() => {
-    //     getResult(location);
-    // }, [location])
-
-    const getResult = async (name)=> {
-        try{
-            const {data} = await axios.get(`https://api.github.com/users/${username}/repos`)
-            let nameList = data.map(repo => repo.name)
-            console.log(nameList)
-            setRepoList(nameList)
-        } catch(err) {
-            console.warn(err.mesage);
-
-        }
-    }
-
-
-
+    
     return (
         <form onSubmit={handleSubmit} role= "form">
             <label htmlFor="input" >Enter Username</label>

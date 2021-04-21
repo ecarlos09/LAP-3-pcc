@@ -1,9 +1,11 @@
-import React, { useState}  from 'react';
+import React, { useState }  from 'react';
+import { useSelector } from 'react-redux';
 import {NavLink, Switch} from 'react-router-dom'
 
-const Repo = ({repoList, setRepoList}) => {
+const Repo = () => {
     
-
+    const repoList = useSelector(state => state.repos);
+    console.log(repoList);
 
     const list =  repoList.map( (name,index) => <NavLink to={`/Repopage/${index}`}><h1>{name}</h1></NavLink>)
 

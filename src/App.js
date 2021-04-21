@@ -5,16 +5,15 @@ import {Homepage, Repopage} from './pages'
 
 
 function App() {
-    let [username, setUsername] = useState("")
     return (
         <>
         <NavBar />
         <Switch>
             <Route exact path ="/">
-                <Homepage username={username} setUsername={setUsername}/>
+                <Homepage />
             </Route>
             <Route path ="/Repopage">
-                <Repopage username={username} setUsername={setUsername}/>
+                <Repopage />
             </Route>
         </Switch>
         <Footer />

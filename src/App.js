@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { Switch, Route } from 'react-router-dom';
-import { NavBar } from './layout';
+import { NavBar, Footer } from './layout';
 import {Homepage, Repopage} from './pages'
 
 
@@ -17,6 +17,7 @@ function App() {
                 <Repopage username={username} setUsername={setUsername}/>
             </Route>
         </Switch>
+        <Footer />
         </>
        
     )

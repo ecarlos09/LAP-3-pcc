@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
-const RepoInfo = ({username}) => {
+const RepoInfo = () => {
     const [result, setResult] = useState("")
+
+    const repoList = useSelector(state => state.repos);
+    const username = useSelector(state => state.username);
 
     const params = useParams();
 
@@ -17,7 +21,7 @@ const RepoInfo = ({username}) => {
         console.log(name)
         try{
             const {data} = await axios.get(`https://api.github.com/users/${name}/repos`)
-            let result = data[params.id].url
+            let result = data[params.id - 1].url
             console.log(result)
             setResult(result)
         } catch(err) {

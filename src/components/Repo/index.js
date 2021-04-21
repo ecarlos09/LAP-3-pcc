@@ -5,9 +5,8 @@ import {NavLink, Switch} from 'react-router-dom'
 const Repo = () => {
     
     const repoList = useSelector(state => state.repos);
-    console.log(repoList);
 
-    const list =  repoList.map( (name,index) => <NavLink to={`/Repopage/${index}`}><h1>{name}</h1></NavLink>)
+    const list =  repoList.map( (name,index) => <NavLink to={`/Repopage/${index + 1}`}><h1>{name}</h1></NavLink>)
 
 
     return (

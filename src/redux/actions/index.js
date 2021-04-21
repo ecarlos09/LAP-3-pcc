@@ -3,21 +3,20 @@ import axios from 'axios';
 const loading = username => ({ type: 'LOADING', payload: username });
 const loadRepos = (username, list, avatar) => ({ type: 'LOAD_REPOS', payload: { username, list, avatar } });
 const loadRepoInfo = (repoInfo) => ({ type: 'LOAD_REPO_INFO', payload: repoInfo });
-const error = () => ({ type: 'SET_ERROR', payload: err.message });
+const error = (err) => ({ type: 'SET_ERROR', payload: err.message });
 
 export const getResult = (userSearch) => {
     return async (dispatch) => {
         dispatch(loading(userSearch));
         try {
             const {data} = await axios.get(`https://api.github.com/users/${userSearch}/repos`)
-            console.log(data);
             let username = data[0].owner.login;
             let list = data.map(repo => repo.name);
             let avatar = data[0].owner.avatar_url;
             dispatch(loadRepos(username, list, avatar));
         } catch (err) {
             console.warn(err.message);
-            dispatch(error);
+            dispatch(error(err));
         }
     }
 }

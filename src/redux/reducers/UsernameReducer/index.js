@@ -1,6 +1,7 @@
 const initState = { 
     username: "",
     repos: [],
+    repoInfo: {},
     loading: false
 }
 

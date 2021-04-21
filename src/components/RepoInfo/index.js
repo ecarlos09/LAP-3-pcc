@@ -15,7 +15,21 @@ const RepoInfo = () => {
     dispatch(getRepoInfo(username, params));
 
     return (
-        <h1>url:{result}</h1>
+        <section className="repo-info">
+            <p>Please do not refresh your page (we have not installed redux persist yet)!</p>
+            <h1>{result.url}</h1>
+            <h1>{result.description}</h1>
+            <h1>{result.language}</h1>
+            <h1>{result.createdAt}</h1>
+            <h1>{result.updatedAt}</h1>
+            <h1>{result.forksCount}</h1>
+            <h1>{result.stargazersCount}</h1>
+            <h1>{result.watchersCount}</h1>
+            <h1>{result.collaboratorsUrl}</h1>
+            <h1>{result.contributorsUrl}</h1>
+            <h1>{result.deploymentsUrl}</h1>
+        </section>
+
     )
 
 }

@@ -23,10 +23,33 @@ export const getRepoInfo = (userSearch, params) => {
     return async (dispatch) => {
         try {
             const {data} = await axios.get(`https://api.github.com/users/${userSearch}/repos`);
-            let result = data[params.id - 1].url;
+            let url = data[params.id - 1].url;
+            let description = data[params.id - 1].description;
+            let language = data[params.id - 1].language;
+            let createdAt = data[params.id - 1].created_at;
+            let updatedAt = data[params.id - 1].updated_at;
+            let forksCount = data[params.id - 1].forks_count;
+            let stargazersCount = data[params.id - 1].stargazers_count;
+            let watchersCount = data[params.id - 1].watchers_count;
+            let collaboratorsUrl= data[params.id - 1].collaborators_url;
+            let contributorsUrl = data[params.id - 1].contributors_url;
+            let deploymentsUrl = data[params.id - 1].deployments_url;
+            let repoInfo = {
+                url, 
+                description, 
+                language, 
+                createdAt, 
+                updatedAt, 
+                forksCount, 
+                stargazersCount, 
+                watchersCount, 
+                collaboratorsUrl, 
+                contributorsUrl, 
+                deploymentsUrl
+            }
             dispatch({
                 type: 'LOAD_REPO_INFO',
-                payload: result
+                payload: repoInfo
             })                        
         } catch (err) {
             dispatch({

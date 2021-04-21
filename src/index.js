@@ -8,14 +8,14 @@ import './styles/index.css';
 import { BrowserRouter as Router } from 'react-router-dom';
 
 import { Provider } from 'react-redux';
-// import { store } from '../src/redux/stores';
+import { store } from '../src/redux/stores';
 
 ReactDOM.render(
     <React.StrictMode>
         <Router>
-            {/* <Provider store={store} > */}
+            <Provider store={store}>
                     <App />
-            {/* </Provider>             */}
+            </Provider>            
         </Router>
     </React.StrictMode>,
     document.getElementById('root')

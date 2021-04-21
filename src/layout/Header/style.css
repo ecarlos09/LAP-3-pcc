@@ -1,0 +1,16 @@
+header {
+    display: flex;
+    justify-content: center;
+}
+
+header #logo {
+    font-size: 4rem;
+}
+
+/* h1 {
+    margin: 0.5rem 0.5rem 0.5rem 0.5rem;
+}
+
+#logo {
+    margin: 0.5rem 0.5rem 0.5rem 0.5rem;
+} */

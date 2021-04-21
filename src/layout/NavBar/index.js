@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './style.css';
+
 import { NavLink, useHistory } from 'react-router-dom';
 
 const NavBar = () => {
@@ -7,10 +9,14 @@ const NavBar = () => {
 
     return (
         <nav>
-            <NavLink exact to="/" activeClassName="current">Home</NavLink>
-            <NavLink to="/repopage" activeClassName="current">Repo Info</NavLink>
-            <button id="back-button" onClick={history.goBack}>Go back</button>
-            <button id="forward-button" onClick={history.goForward}>Go forward</button>
+            <section className="page-links">
+                <NavLink exact to="/" activeClassName="current">Home</NavLink>
+                <NavLink to="/repopage" activeClassName="current">Repo Info</NavLink>
+            </section>
+            <section className="history-links">
+                <button id="back-button" onClick={history.goBack}>Go back</button>
+                <button id="forward-button" onClick={history.goForward}>Go forward</button>            
+            </section>
         </nav>
     )
 }

@@ -1,0 +1,15 @@
+nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+.page-links {
+    width: 10vw;
+    display: flex;
+    justify-content: space-between;
+}
+
+.history-links {
+    display: flex;
+    justify-content: space-around;
+}

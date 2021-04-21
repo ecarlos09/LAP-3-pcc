@@ -6,9 +6,10 @@ export const getResult = (userSearch) => {
             const {data} = await axios.get(`https://api.github.com/users/${userSearch}/repos`)
             let username = data[0].owner.login;
             let list = data.map(repo => repo.name);
+            let avatar = data[0].owner.avatar_url;
             dispatch({
                 type: 'LOAD_REPOS',
-                payload: {username, list}
+                payload: { username, list, avatar }
             })
         } catch (err) {
             dispatch({

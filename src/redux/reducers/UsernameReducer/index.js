@@ -10,7 +10,8 @@ const usernameReducer = (state=initState, action) => {
         case "LOAD_REPOS":
             const username = action.payload.username;
             const repoList = action.payload.list;
-            return { ...state, username: username, repos: repoList };
+            const avatar = action.payload.avatar;
+            return { ...state, username: username, repos: repoList, avatar: avatar };
         case "LOAD_REPO_INFO":
             const repoInfo = action.payload;
             return { ... state, repoInfo: repoInfo};

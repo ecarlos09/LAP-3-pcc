@@ -12,8 +12,7 @@ const Repo = () => {
     return (
         
         <>
-        <h1>Repolist</h1>
-
+        <h1>Repolist</h1>        
        {list}
         </>
     )
